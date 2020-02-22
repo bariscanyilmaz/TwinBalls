@@ -9,6 +9,8 @@ TagManager:
   - Bonus
   - Coin
   - Trap
+  - Boost
+  - Panel
   layers:
   - Default
   - TransparentFX

@@ -51,8 +51,6 @@ public class ScrollerStatic : MonoBehaviour
         if (lowerObject.transform.localPosition.y <= -height / 2)
         {
 
-            Debug.Log("bir giris eylemi erceklesti");
-
             lowerObject.transform.position = new Vector3(lowerObject.transform.position.x,
                 lowerObject.transform.position.y + 2 * height,
                 lowerObject.transform.position.z);

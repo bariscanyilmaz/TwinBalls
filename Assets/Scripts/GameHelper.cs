@@ -13,7 +13,9 @@ public class GameHelper : MonoBehaviour
     public int Coin { get { return coin; } }
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI coinText;
-    
+    public TextMeshProUGUI gameStatusText;
+    public GameObject panel;
+
 
     private static GameHelper _gameHelper;
 
@@ -29,6 +31,8 @@ public class GameHelper : MonoBehaviour
 
         highestScore = PlayerPrefs.GetInt("score");
         coin = PlayerPrefs.GetInt("coin");
+        //panel=GameObject.FindGameObjectWithTag("Panel");
+
     }
 
 
@@ -49,17 +53,40 @@ public class GameHelper : MonoBehaviour
 
     public void RestartGame()
     {
+        panel.SetActive(false);
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void GameOver()
     {
+        gameStatusText.text = "Game Over";
         Time.timeScale = 0;
     }
 
     public void IncreaseCoin()
     {
         coin++;
-        PlayerPrefs.SetInt("coin",coin);
+        PlayerPrefs.SetInt("coin", coin);
+    }
+
+    public void PauseGame()
+    {
+        gameStatusText.text = "Pause";
+        Time.timeScale = 0;
+        panel.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        panel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void ExitGame()
+    {
+        Time.timeScale=1;
+        panel.SetActive(false);
+        SceneManager.LoadScene("HomeScene");
     }
 }
