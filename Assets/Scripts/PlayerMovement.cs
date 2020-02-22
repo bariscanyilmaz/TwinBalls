@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Collider2D ignoreCollider;
     private Collider2D ownCollider;
     private Rigidbody2D rigidBody;
-    private GameManager gameManager;
+    private GameHelper gameManager;
     private bool isSuperPower;
     private bool superPowerStarted;
     private float duration;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         ownCollider = GetComponent<CircleCollider2D>();
         Physics2D.IgnoreCollision(ignoreCollider, ownCollider);
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameHelper>();
 
     }
 

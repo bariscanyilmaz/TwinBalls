@@ -1,35 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
-
-public class GameManager : MonoBehaviour
+public class GameHelper : MonoBehaviour
 {
-
-    private int score;
+     private int score;
+    private int highestScore;
     public int Score{get{return score;}}
     public TextMeshProUGUI scoreText;
-    private static GameManager _gameManager;
+    private static GameHelper _gameHelper;
 
-    public static GameManager gameManager { get { return _gameManager; } }
+    public static GameHelper gameManager { get { return _gameHelper; } }
 
     void Awake()
     {
 
-        if (_gameManager == null)
+        if (_gameHelper == null)
         {
-            _gameManager = this;
+            _gameHelper = this;
         }
 
-        score=PlayerPrefs.GetInt("score");
+        highestScore=PlayerPrefs.GetInt("score");
     }
 
 
     public void IncreaseScore(int score)
     {
         this.score+=score;
+        if (score>highestScore)
+        {
+            PlayerPrefs.SetInt("score",score);
+        }
     }
 
     private void FixedUpdate()
@@ -46,5 +49,4 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale=0;
     }
-    
 }
