@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float verticalVelocity = 5;
+    public float verticalVelocity = 10;
     public float horizontalVelocity = 0;
     public Rigidbody2D otherPlayer;
     public Collider2D ignoreCollider;
@@ -109,11 +109,21 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (collision.collider.tag == "Trape")
+        if (collision.collider.tag == "Trap")
         {
-            collision.collider.gameObject.GetComponent<ParticleScript>().ParticalPlay();
+            var particle=collision.collider.gameObject.GetComponent<ParticleScript>();
+            if (particle!=null)
+            {
+                particle.ParticalPlay();
+            }
             gameManager.GameOver();
 
+        }
+    
+        if (collision.collider.tag=="Coin")
+        {
+            collision.gameObject.transform.position=new Vector3(collision.gameObject.transform.position.x,collision.gameObject.transform.position.y+15f,collision.gameObject.transform.position.z);
+            gameManager.IncreaseCoin();
         }
     }
 

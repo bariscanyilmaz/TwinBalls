@@ -6,8 +6,9 @@ TagManager:
   tags:
   - PlayerRight
   - PlayerLeft
-  - Trape
   - Bonus
+  - Coin
+  - Trap
   layers:
   - Default
   - TransparentFX
