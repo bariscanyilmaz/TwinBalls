@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameHelper : MonoBehaviour
 {
@@ -11,13 +12,18 @@ public class GameHelper : MonoBehaviour
     private int highestScore;
     public int Score { get { return score; } }
     public int Coin { get { return coin; } }
+    public int HighestScore { get { return highestScore; } }
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI gameStatusText;
+    public TextMeshProUGUI highestScoreText;
     public GameObject panel;
+    public GameObject resumeButton;
 
+    public GameSoundScript gameSoundManager;
 
     private static GameHelper _gameHelper;
+
 
     public static GameHelper gameManager { get { return _gameHelper; } }
 
@@ -39,9 +45,12 @@ public class GameHelper : MonoBehaviour
     public void IncreaseScore(int score)
     {
         this.score += score;
-        if (score > highestScore)
+        gameSoundManager.BonusPlay();
+        if (Score > HighestScore)
         {
-            PlayerPrefs.SetInt("score", score);
+            highestScore=this.Score;
+            PlayerPrefs.SetInt("highestScore", HighestScore);
+            PlayerPrefs.SetInt("score", Score);
         }
     }
 
@@ -60,25 +69,36 @@ public class GameHelper : MonoBehaviour
 
     public void GameOver()
     {
+        gameSoundManager.PauseGamePlay();
+        gameSoundManager.FailurePlay();
+        panel.SetActive(true);
+        resumeButton.SetActive(false);
         gameStatusText.text = "Game Over";
+        highestScoreText.text="Highest Score:"+HighestScore;
         Time.timeScale = 0;
     }
 
     public void IncreaseCoin()
     {
         coin++;
+        gameSoundManager.CoinPlay();
         PlayerPrefs.SetInt("coin", coin);
     }
 
     public void PauseGame()
     {
+        
+        gameSoundManager.PauseGamePlay();
+        resumeButton.SetActive(true);
         gameStatusText.text = "Pause";
+        highestScoreText.text="Highest Score:"+HighestScore;
         Time.timeScale = 0;
         panel.SetActive(true);
     }
 
     public void ResumeGame()
     {
+        gameSoundManager.ResumeGamePlay();
         panel.SetActive(false);
         Time.timeScale = 1;
     }

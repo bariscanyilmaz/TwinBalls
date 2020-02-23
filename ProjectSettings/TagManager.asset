@@ -11,6 +11,9 @@ TagManager:
   - Trap
   - Boost
   - Panel
+  - Trape
+  - GarbageCollector
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         ownCollider = GetComponent<CircleCollider2D>();
         Physics2D.IgnoreCollision(ignoreCollider, ownCollider);
         gameManager = GameObject.Find("GameManager").GetComponent<GameHelper>();
-
+        
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = new Vector3((transform.position.x + otherPlayer.position.x) / 2, transform.position.y, transform.position.z);
             otherPlayer.position = new Vector3((transform.position.x + otherPlayer.position.x) / 2, otherPlayer.transform.position.y, otherPlayer.transform.position.z);
-            rigidBody.velocity = new Vector2(0, verticalVelocity);
+            rigidBody.velocity = new Vector2(0, verticalVelocity+2);
         }
         else
         {
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (isSuperPower)
             {
-                collision.collider.gameObject.transform.position = new Vector3(-collision.collider.gameObject.transform.position.x, collision.collider.gameObject.transform.position.y + 15, collision.collider.gameObject.transform.position.z);
+                collision.collider.gameObject.transform.position = new Vector3(-collision.collider.gameObject.transform.position.x, collision.collider.gameObject.transform.position.y + 100f, collision.collider.gameObject.transform.position.z);
                 gameManager.IncreaseScore(10);
                 rigidBody.velocity = new Vector2(horizontalVelocity, verticalVelocity);
 
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
                 if (collision.collider.gameObject.GetComponent<SpriteRenderer>().color == gameObject.GetComponent<SpriteRenderer>().color)
                 {
 
-                    collision.collider.gameObject.transform.position = new Vector3(-collision.collider.gameObject.transform.position.x, collision.collider.gameObject.transform.position.y + 15, collision.collider.gameObject.transform.position.z);
+                    collision.collider.gameObject.transform.position = new Vector3(-collision.collider.gameObject.transform.position.x, collision.collider.gameObject.transform.position.y + 100f, collision.collider.gameObject.transform.position.z);
                     gameManager.IncreaseScore(10);
                     rigidBody.velocity = new Vector2(horizontalVelocity, verticalVelocity);
 
@@ -95,19 +95,12 @@ public class PlayerMovement : MonoBehaviour
                     gameManager.GameOver();
                 }
             }
-
-
         }
-
 
 
         if (collision.collider.tag == "Trap")
         {
-            if (isSuperPower)
-            {
-
-            }
-            else
+            if (!isSuperPower)
             {
                 var particle = collision.collider.gameObject.GetComponent<ParticleScript>();
                 if (particle != null)
@@ -116,18 +109,17 @@ public class PlayerMovement : MonoBehaviour
                 }
                 gameManager.GameOver();
             }
-
-
         }
 
         if (collision.collider.tag == "Coin")
         {
-            collision.gameObject.transform.position = new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y + 15f, collision.gameObject.transform.position.z);
+            collision.gameObject.transform.position = new Vector3(-collision.gameObject.transform.position.x, collision.gameObject.transform.position.y + 100f, collision.gameObject.transform.position.z);
             gameManager.IncreaseCoin();
         }
 
         if (collision.collider.tag == "Boost")
         {
+            collision.gameObject.transform.position=new Vector3(-collision.gameObject.transform.position.x,collision.gameObject.transform.position.y+100f,collision.gameObject.transform.position.z);
             MakeBoost();
             otherPlayer.GetComponent<PlayerMovement>().MakeBoost();
         }

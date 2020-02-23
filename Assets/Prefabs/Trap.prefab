@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3893956174747468338}
   - component: {fileID: 3893956174747468339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,8 +92,8 @@ GameObject:
   - component: {fileID: 3893956175602959051}
   - component: {fileID: 3893956175602959050}
   - component: {fileID: 2139482323966989097}
-  m_Layer: 0
-  m_Name: Trape
+  m_Layer: 8
+  m_Name: Trap
   m_TagString: Trape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3893956176438400228}
   - component: {fileID: 3893956176438400229}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3893956176454973101}
   - component: {fileID: 3893956176454973102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 4057248423763246542}
   - component: {fileID: 1643726923746950655}
   - component: {fileID: 8701856397239671436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

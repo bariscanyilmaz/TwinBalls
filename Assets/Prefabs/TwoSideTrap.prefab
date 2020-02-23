@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1009828983076270127}
   - component: {fileID: 1009828983076270124}
   - component: {fileID: 1009828983076270126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TwoSideTrap
   m_TagString: Trap
   m_Icon: {fileID: 0}

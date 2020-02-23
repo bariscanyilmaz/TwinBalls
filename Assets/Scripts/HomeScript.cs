@@ -11,7 +11,7 @@ public class HomeScript : MonoBehaviour
     public TextMeshProUGUI coinText;
     void Start()
     {
-        scoreText.text="Highest Score:"+PlayerPrefs.GetInt("score");
+        scoreText.text="Highest Score:"+PlayerPrefs.GetInt("highestScore");
         coinText.text="Coin:"+PlayerPrefs.GetInt("coin");
     }
 

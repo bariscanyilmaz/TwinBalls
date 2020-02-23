@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3511257496909281768}
   - component: {fileID: 3511257496909281769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3511257496969028192}
   - component: {fileID: 3511257496969028193}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3511257498086851480}
   - component: {fileID: 3511257498086851481}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3511257498355211968}
   - component: {fileID: 3511257498355211969}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3511257498431342520}
   - component: {fileID: 3511257498431342521}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,8 +414,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3511257498733484336}
-  m_Layer: 0
-  m_Name: StarTrape
+  m_Layer: 8
+  m_Name: StarTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
