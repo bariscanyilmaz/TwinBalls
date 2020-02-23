@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             rigidBody.velocity = new Vector2(horizontalVelocity, verticalVelocity);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
 
             horizontalVelocity = -(horizontalVelocity);
